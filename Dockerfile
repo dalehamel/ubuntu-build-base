@@ -15,6 +15,16 @@ RUN chmod +x /usr/sbin/policy-rc.d
 # Do an initial update so we have updated lists for the build
 RUN apt-get update
 
+# Install some additional packages to behave more like a standard ubuntu system
+RUN apt-get install -y \
+  binutils \
+  curl \
+  debhelper \
+  git \
+  pbuilder \
+  quilt \
+  wget
+
 RUN locale-gen en_US.UTF-8
 
 # Let the container run doing nothing
